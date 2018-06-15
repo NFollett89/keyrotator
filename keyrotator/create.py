@@ -45,4 +45,5 @@ class CreateCommand(object):
   def _write_key(self, path, payload):
     """Writes the key out to the filesystem."""
     with open(path, "w") as outfile:
-      json.dump(payload, outfile)
+      outfile.write(json.dumps(payload, sort_keys=True,
+                    indent=4, separators=(",", ": ")))
